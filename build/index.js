@@ -24,7 +24,7 @@ var OpengraphWebpackPlugin = function OpengraphWebpackPlugin(options) {
     return compiler.plugin('compilation', function (compilation) {
       return compilation.plugin('html-webpack-plugin-before-html-processing', function (htmlPluginData, callback) {
         var filesToInclude = (0, _lodash.map)(_this.options, format).join('\n');
-        htmlPluginData.html = htmlPluginData.html.replace('</head>', filesToInclude + '</head>');
+        htmlPluginData.html = htmlPluginData.html.replace('</head>', filesToInclude + '\n</head>');
         callback(null, htmlPluginData);
       });
     });

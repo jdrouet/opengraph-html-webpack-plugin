@@ -17,7 +17,7 @@ export default class OpengraphWebpackPlugin {
     compiler.plugin('compilation', compilation =>
       compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
         const filesToInclude = map(this.options, format).join('\n');
-        htmlPluginData.html = htmlPluginData.html.replace('</head>', filesToInclude + '</head>');
+        htmlPluginData.html = htmlPluginData.html.replace('</head>', filesToInclude + '\n</head>');
         callback(null, htmlPluginData);
       }));
 
